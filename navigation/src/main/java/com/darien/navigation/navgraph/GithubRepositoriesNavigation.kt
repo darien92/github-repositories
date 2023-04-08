@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.darien.core_ui.AppScreens
 import com.darien.navigation.screen.SplashScreen
+import com.darien.search_ui.SearchScreen
 
 @Composable
 fun GithubRepositoriesNavigation() {
@@ -15,7 +16,11 @@ fun GithubRepositoriesNavigation() {
         startDestination = AppScreens.SplashScreen.name
     ) {
         composable(AppScreens.SplashScreen.name) {
-            SplashScreen()
+            SplashScreen(navController = navController)
+        }
+        
+        composable(AppScreens.SearchScreen.name) {
+            SearchScreen(navController = navController)
         }
     }
 }
