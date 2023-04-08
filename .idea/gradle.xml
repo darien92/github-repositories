@@ -11,6 +11,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/core-data" />
+            <option value="$PROJECT_DIR$/core/core-ui" />
+            <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/repositories" />
+            <option value="$PROJECT_DIR$/repositories/repositories-data" />
+            <option value="$PROJECT_DIR$/repositories/repositories-ui" />
+            <option value="$PROJECT_DIR$/search" />
+            <option value="$PROJECT_DIR$/search/search-data" />
+            <option value="$PROJECT_DIR$/search/search-ui" />
           </set>
         </option>
       </GradleProjectSettings>
