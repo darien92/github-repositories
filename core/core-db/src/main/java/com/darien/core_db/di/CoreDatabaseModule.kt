@@ -28,5 +28,5 @@ class CoreDatabaseModule {
 
     @Provides
     @Singleton
-    fun provideOrganizationsDao(wordsDatabase: DatabaseService): OrganizationsDAO = wordsDatabase.organizationsDao()
+    fun provideOrganizationsDao(appDatabase: DatabaseService): OrganizationsDAO = appDatabase.organizationsDao()
 }
