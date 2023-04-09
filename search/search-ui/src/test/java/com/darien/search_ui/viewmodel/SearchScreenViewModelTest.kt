@@ -88,10 +88,8 @@ internal class SearchScreenViewModelTest {
         sut.uiEffect.test {
             sut.submitAction(SearchScreenAction.ContinuePressed(organization = normalOrg))
             val stateTransitions = mutableListOf<SearchScreenEffect>()
-            //testing that 1 event has been produced for Continue Pressed action (In case that there
-            // were no more events or there were events remaining for the Flow, it would throw an Exception and test wouldn't pass)
             stateTransitions.add(awaitItem())
-            assert(stateTransitions.size == 1)
+            assert(stateTransitions[0] is SearchScreenEffect.NavigateToNextScreen)
         }
     }
 
