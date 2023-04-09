@@ -4,7 +4,6 @@ import com.darien.core_db.datasource.OrganizationDbDS
 import com.darien.core_db.model.Organization
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -24,16 +23,16 @@ internal class GetOrganizationsFromDBRepositoryTest {
 
     @Test
     fun `Should Return Empty List When There Are No Results`(): Unit = runBlocking {
-        val response = sut.getOrganizationsFromDb(orgEmptyQuery).firstOrNull()
+        val response = sut.getOrganizationsFromDb(orgEmptyQuery)
         assertNotNull(response)
-        assert(response!!.isEmpty())
+        assert(response.isEmpty())
     }
 
     @Test
     fun `Should Propagate DomainModel When There Are Result`() = runBlocking {
-        val response = sut.getOrganizationsFromDb(orgWithDataQuery).firstOrNull()
+        val response = sut.getOrganizationsFromDb(orgWithDataQuery)
         assertNotNull(response)
-        assertEquals(response!!.size, 3)
+        assertEquals(response.size, 3)
         assertEquals(response[0].id, 1)
         assertEquals(response[0].name, "Goo")
         assertEquals(response[1].id, 2)
