@@ -6,7 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.darien.core_ui.AppScreens
 import com.darien.navigation.screen.SplashScreen
-import com.darien.search_ui.SearchScreen
+import com.darien.repositories_ui.screen.RepositoriesScreen
+import com.darien.search_ui.screen.SearchScreen
 
 @Composable
 fun GithubRepositoriesNavigation() {
@@ -21,6 +22,11 @@ fun GithubRepositoriesNavigation() {
         
         composable(AppScreens.SearchScreen.name) {
             SearchScreen(navController = navController)
+        }
+
+        composable(AppScreens.RepositoriesScreen.name + "/{query}") { backStackEntry ->
+            backStackEntry.arguments?.getString("query")
+                ?.let { RepositoriesScreen(navController = navController, organizationName = it) }
         }
     }
 }
