@@ -20,6 +20,20 @@ but it doesn't allow to sort the repositories by stars count.
 - Repositories: Repositories Screen requests top 3 most popular repositories from [Github API](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28). If response is error or is any failure (e.g:internet error), the app will show an error screen. Else, the app will cache (save in Room DB) the current organization (if it doesn't exists already) for future searches and display a list with the repositories and some details of those.
 - WebView: When the user taps a repository, the app navigates to the WebViewScreen, there is a WebView showing the Github page for the selected repository.
 
+## Screens
+Splash Screen:
+![Splash Screen](splash_screen.jpg)
+
+Search Screen:
+![Search Empty](search_empty.jpg)
+![Search With Value](search_with_value.jpg)
+
+Repositories Screen
+![Repositories Screen](repositories_list.jpg)
+
+Repository Details
+![Repository Details](repository_details.jpg)
+
 ## Modularization
 The app is Modularized. Theres is a module for each feature (except Web View, it's too small yet).
 Each feature module has 2 submodules: UI (containing Screens, Components and ViewModel) and Data(containing Repositories and DataSource).
