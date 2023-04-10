@@ -44,5 +44,5 @@ open class BaseViewModel<S : State, A : Action, E : Effect>(
         }
     }
 
-    open suspend fun handleAction(action: A) {}
+    protected open suspend fun handleAction(action: A) {}
 }
