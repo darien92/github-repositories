@@ -3,6 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url "https://jitpack.io" }
     }
 }
 dependencyResolutionManagement {
@@ -14,3 +15,11 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GithubRepositories"
 include ':app'
+include ':core:core-ui'
+include ':core:core-data'
+include ':navigation'
+include ':search:search-ui'
+include ':search:search-data'
+include ':repositories:repositories-ui'
+include ':repositories:repositories-data'
+include ':core:core-db'
