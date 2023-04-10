@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="validation_failed_message">Ha ocurrido un error de validación, por favor, intente más tarde</string>
+    <string name="service_unavailable_message">Ha ocurrido un error en el servidor, por favor, intente más tarde</string>
+    <string name="connection_error_message">Ha ocurrido un error de conexión, por favor, revise su conexión a internet</string>
+    <string name="unknown_error_message">Algo ha salido mal, por favor, intente más tarde</string>
+    <string name="error">Error</string>
+    <string name="star">Estrella</string>
+    <string name="avatar">Avatar</string>
+    <string name="language">Lenguaje:</string>
+    <string name="updated_on">Actualizado:</string>
+</resources>
