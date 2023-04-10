@@ -8,10 +8,11 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import com.darien.core_ui.util.SharedResources
 
 @Composable
@@ -33,11 +34,19 @@ fun SearchBar(
             .fillMaxWidth()
             .padding(SharedResources.SharedDims.margin_md)
     ) {
+        var textFieldValueState by remember {
+            mutableStateOf(
+                TextFieldValue(
+                    text = value
+                )
+            )
+        }
         OutlinedTextField(
             modifier = modifier.fillMaxWidth(),
-            value = value,
-            onValueChange = {
-                onValueChange(it)
+            value = textFieldValueState,
+            onValueChange = { inputValue ->
+                textFieldValueState = inputValue
+                onValueChange(inputValue.text)
             },
             label = {
                 Text(text = label)
