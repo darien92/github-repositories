@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.darien.core_ui.R
 import com.darien.core_ui.util.SharedResources
@@ -41,9 +42,11 @@ fun TopNavBarComponent(
             )
         }
         Text(
-            modifier = modifier.padding(start = SharedResources.SharedDims.margin_md),
+            modifier = modifier.padding(horizontal = SharedResources.SharedDims.margin_md),
             text = title,
-            style = MaterialTheme.typography.h6
+            style = MaterialTheme.typography.h6,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
         )
     }
 }

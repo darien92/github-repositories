@@ -9,7 +9,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,7 +16,6 @@ import coil.compose.rememberImagePainter
 import com.darien.core_ui.util.SharedResources
 import com.darien.repositories_data.model.domain.RepositoryDomainModel
 import com.darien.repositories_ui.R
-import com.darien.repositories_ui.util.Resources
 
 @Composable
 fun RepositoryItem(
@@ -82,25 +80,6 @@ fun RepositoryItem(
             }
         }
     }
-}
-
-@Composable
-fun StarSection(
-    modifier: Modifier = Modifier,
-    rating: String
-) {
-   Column(
-       modifier = modifier,
-       horizontalAlignment = Alignment.CenterHorizontally
-   ) {
-       Image(
-           modifier = Modifier.size(Resources.Dims.star_image_size),
-           painter = painterResource(id = R.drawable.ic_star),
-           contentDescription = stringResource(id = R.string.star)
-       )
-       Spacer(modifier = modifier.height(SharedResources.SharedDims.margin_xxxs))
-       Text(text = rating, style = MaterialTheme.typography.overline)
-   }
 }
 
 @Preview
