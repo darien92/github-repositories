@@ -1,4 +1,4 @@
-package com.darien.repositories_data.model
+package com.darien.repositories_data.model.api
 
 data class GithubReposResponseModel(
     val incomplete_results: Boolean,

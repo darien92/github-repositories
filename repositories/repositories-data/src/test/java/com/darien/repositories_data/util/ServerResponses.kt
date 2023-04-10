@@ -1,8 +1,8 @@
 package com.darien.repositories_data.util
 
-import com.darien.repositories_data.model.GithubReposResponseModel
-import com.darien.repositories_data.model.Item
-import com.darien.repositories_data.model.Owner
+import com.darien.repositories_data.model.api.GithubReposResponseModel
+import com.darien.repositories_data.model.api.Item
+import com.darien.repositories_data.model.api.Owner
 
 object ServerResponses {
     const val SUCCESS = """

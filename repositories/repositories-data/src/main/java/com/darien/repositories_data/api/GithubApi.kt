@@ -1,6 +1,6 @@
 package com.darien.repositories_data.api
 
-import com.darien.repositories_data.model.GithubReposResponseModel
+import com.darien.repositories_data.model.api.GithubReposResponseModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

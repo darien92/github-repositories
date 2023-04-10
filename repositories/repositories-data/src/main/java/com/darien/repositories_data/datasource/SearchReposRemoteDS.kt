@@ -1,8 +1,8 @@
 package com.darien.repositories_data.datasource
 
-import com.darien.core_data.NetworkErrorCodes
+import com.darien.core_data.NetworkResponseCodes
 import com.darien.repositories_data.api.GithubApi
-import com.darien.repositories_data.model.GithubReposResponseModel
+import com.darien.repositories_data.model.api.GithubReposResponseModel
 import com.darien.repositories_data.util.Common
 import java.io.IOException
 import javax.inject.Inject
@@ -24,16 +24,16 @@ class SearchReposRemoteDS @Inject constructor(private val githubApi: GithubApi) 
                     Result.success(response.body())
                 }
                 422 -> {
-                    Result.failure(Exception(NetworkErrorCodes.VALIDATION_FAILED.name))
+                    Result.failure(Exception(NetworkResponseCodes.VALIDATION_FAILED.name))
                 }
                 503 -> {
-                    Result.failure(Exception(NetworkErrorCodes.SERVICE_UNAVAILABLE.name))
+                    Result.failure(Exception(NetworkResponseCodes.SERVICE_UNAVAILABLE.name))
                 } else -> {
-                    Result.failure(Exception(NetworkErrorCodes.UNKNOWN.name))
+                    Result.failure(Exception(NetworkResponseCodes.UNKNOWN.name))
                 }
             }
         } catch (e: IOException) {
-            Result.failure(Exception(NetworkErrorCodes.CONNECTION_ERROR.name))
+            Result.failure(Exception(NetworkResponseCodes.CONNECTION_ERROR.name))
         }
     }
 }

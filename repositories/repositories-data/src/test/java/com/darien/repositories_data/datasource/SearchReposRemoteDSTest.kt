@@ -1,6 +1,6 @@
 package com.darien.repositories_data.datasource
 
-import com.darien.core_data.NetworkErrorCodes
+import com.darien.core_data.NetworkResponseCodes
 import com.darien.repositories_data.api.GithubApi
 import com.darien.repositories_data.util.ServerResponses
 import com.darien.repositories_data.util.generateFakeResponseModel
@@ -37,7 +37,7 @@ internal class SearchReposRemoteDSTest {
                     path.toString().contains(validationFailedOrg) -> MockResponse().setBody(ServerResponses.ERROR).setResponseCode(422)
                     path.toString().contains(serviceUnavailableOrg) -> MockResponse().setBody(ServerResponses.ERROR).setResponseCode(503)
                     path.toString().contains(noInternetOrg) -> MockResponse().setSocketPolicy(
-                        SocketPolicy.DISCONNECT_AT_START);
+                        SocketPolicy.DISCONNECT_AT_START)
                     else -> MockResponse().setBody(ServerResponses.ERROR).setResponseCode(500)
                 }
             }
@@ -57,28 +57,28 @@ internal class SearchReposRemoteDSTest {
     fun `Should Propagate Validation Error On Code 422`() = runBlocking {
         val response = sut.requestRepos(organization = validationFailedOrg)
         assert(!response.isSuccess)
-        assert(response.exceptionOrNull()!!.message == NetworkErrorCodes.VALIDATION_FAILED.name)
+        assert(response.exceptionOrNull()!!.message == NetworkResponseCodes.VALIDATION_FAILED.name)
     }
 
     @Test
     fun `Should Propagate Service Unavailable Error On Code 503`() = runBlocking {
         val response = sut.requestRepos(organization = serviceUnavailableOrg)
         assert(!response.isSuccess)
-        assert(response.exceptionOrNull()!!.message == NetworkErrorCodes.SERVICE_UNAVAILABLE.name)
+        assert(response.exceptionOrNull()!!.message == NetworkResponseCodes.SERVICE_UNAVAILABLE.name)
     }
 
     @Test
     fun `Should Propagate Unknown Error On Code 500`() = runBlocking {
         val response = sut.requestRepos(organization = unknownErrorOrg)
         assert(!response.isSuccess)
-        assert(response.exceptionOrNull()!!.message == NetworkErrorCodes.UNKNOWN.name)
+        assert(response.exceptionOrNull()!!.message == NetworkResponseCodes.UNKNOWN.name)
     }
 
     @Test
     fun `Should Propagate Connection Error On No Connection`() = runBlocking {
         val response = sut.requestRepos(organization = noInternetOrg)
         assert(!response.isSuccess)
-        assert(response.exceptionOrNull()!!.message == NetworkErrorCodes.CONNECTION_ERROR.name)
+        assert(response.exceptionOrNull()!!.message == NetworkResponseCodes.CONNECTION_ERROR.name)
     }
 
     @After
