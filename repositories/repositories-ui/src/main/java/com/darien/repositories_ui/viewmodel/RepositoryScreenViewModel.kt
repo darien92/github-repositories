@@ -1,6 +1,5 @@
 package com.darien.repositories_ui.viewmodel
 
-import com.darien.core_data.NetworkResponseCodes
 import com.darien.core_ui.viewmodel.BaseViewModel
 import com.darien.repositories_data.repository.GetRepositoriesListRepository
 import com.darien.repositories_ui.data.RepositoryScreenAction
@@ -33,9 +32,6 @@ class RepositoryScreenViewModel @Inject constructor(private val repository: GetR
     private suspend fun handleRequestOrganizationRepositories(organization: String) {
         setLoading(loading = true)
         val response = repository.getRepositoriesFromOrg(organization = organization)
-        if (response.responseCode == NetworkResponseCodes.SUCCESS) {
-            repository.saveOrganizationInDb(organization = organization)
-        }
         _state.update {
             it.copy(responseStatus = response.responseCode, repositories = response.repositories)
         }

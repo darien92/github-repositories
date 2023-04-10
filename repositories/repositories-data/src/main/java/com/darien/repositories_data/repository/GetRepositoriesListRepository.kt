@@ -17,6 +17,7 @@ class GetRepositoriesListRepository @Inject constructor(
         return if (response.isSuccess) {
             if (response.getOrNull() != null && response.getOrNull()!!.items != null) {
                 //handle result
+                organizationDbDS.saveOrganization(organization = (Organization(name = organization)))
                 RepositoriesResponseDomainModel(
                     responseCode = NetworkResponseCodes.SUCCESS,
                     repositories = response.getOrNull()!!.items!!.map {
@@ -44,9 +45,5 @@ class GetRepositoriesListRepository @Inject constructor(
                 repositories = emptyList()
             )
         }
-    }
-
-    suspend fun saveOrganizationInDb(organization: String) {
-        organizationDbDS.saveOrganization(organization = (Organization(name = organization)))
     }
 }
